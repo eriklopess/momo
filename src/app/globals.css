@@ -121,3 +121,46 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Auth Form Overrides */
+.auth-wrapper input {
+  height: 3rem !important;
+  /* h-12 */
+  border-radius: var(--radius-md) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--foreground) !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  transition: all 0.2s;
+}
+
+.auth-wrapper input:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px rgba(123, 44, 191, 0.2) !important;
+  outline: none !important;
+}
+
+.auth-wrapper button[type="submit"],
+.auth-wrapper button[data-variant="primary"] {
+  height: 3rem !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px 0 rgba(123, 44, 191, 0.39) !important;
+  transition: all 0.2s;
+}
+
+.auth-wrapper button[type="submit"]:hover,
+.auth-wrapper button[data-variant="primary"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(123, 44, 191, 0.23) !important;
+  filter: brightness(1.1);
+}
+
+.auth-wrapper label {
+  font-size: 0.875rem !important;
+  color: var(--muted-foreground) !important;
+  margin-bottom: 0.25rem !important;
+}
