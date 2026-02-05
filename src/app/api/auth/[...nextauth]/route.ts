@@ -1,17 +1,19 @@
 import NextAuth from "next-auth";
 import EmailProvider from "next-auth/providers/email";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { prisma } from "@/lib/db";
+import { prisma } from "@/database";
 
-export const { handlers, auth } = NextAuth({
+const handler = NextAuth({
     adapter: PrismaAdapter(prisma),
     session: { strategy: "database" },
     providers: [
         EmailProvider({
             from: process.env.EMAIL_FROM,
-            // NextAuth usa nodemailer por padrão; alternativa mais simples:
-            // usar Resend via sendVerificationRequest custom (recomendado no MVP)
+            sendVerificationRequest({ identifier, url, provider }) {
+                console.log('sendVerificationRequest', identifier, url, provider)
+            },
         }),
     ],
 });
-export const { GET, POST } = handlers;
+
+export { handler as GET, handler as POST };
