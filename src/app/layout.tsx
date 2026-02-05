@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { authClient } from "@/lib/auth-client";
 import { NeonAuthUIProvider, UserButton } from "@neondatabase/auth/react";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,7 @@ export default function RootLayout({
             emailOTP
           >
             {children}
+            <Toaster />
           </NeonAuthUIProvider>
         </ThemeProvider>
       </body>
